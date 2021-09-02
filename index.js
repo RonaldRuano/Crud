@@ -1,14 +1,16 @@
 const mysql = require('mysql');
 const express = require('express');
 const bodyParser = require('body-parser');
+const bdConfig = require('./configurations/bd');
 
 var app = express();
 app.use(bodyParser.json());
 
 var mysqlConnection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    database: "escuela"
+    host: bdConfig.host,
+    user: bdConfig.user,
+    password: bdConfig.password,
+    database: bdConfig.database
 });
 
 //Leer todos los estudiantes
@@ -89,4 +91,4 @@ app.delete("/Eliminarestudiantes/:id", (req, res) => {
         });
 });
 
-app.listen(3000);
+app.listen(process.env.PORT ||3000);
