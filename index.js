@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 var mysqlConnection = mysql.createConnection({
     host: bdConfig.host,
     user: bdConfig.user,
-    password: bdConfig.password,
+    password: bdConfig.Password,
     database: bdConfig.database
 });
 
